@@ -1,4 +1,4 @@
-# WinkaWare-v2
+# WinkaWare v2
 Roblox Serial Killer
 ---------------------
 Roblox script collection for private hub
