@@ -1,7 +1,7 @@
 # WinkaWare v2
 Roblox Serial Killer
 ---------------------
-Roblox script collection WinkaWare hub
+Roblox script collection for the WinkaWare hub
 
 Script will soon be public, currently in dev.
 
