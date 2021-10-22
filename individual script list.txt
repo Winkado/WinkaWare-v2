@@ -1,0 +1,81 @@
+SCRIPT LIST
+
+TAB 1
+ btools
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%201/btools.lua", true))()
+ chatbypass
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%201/chatbypass.lua", true))()
+ cmd-x
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%201/cmd-x.lua", true))()
+ emotegui
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%201/emotegui.lua", true))()
+ esp
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%201/esp.lua", true))()
+ feinvis
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%201/feinvis.lua", true))()
+ infiniteyield
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%201/infiniteyield.lua", true))()
+ netbypass
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%201/netbypass.lua", true))()
+ syntaxv2
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%201/syntaxv2.lua", true))()
+
+TAB 2
+ animefighting
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%202/animefighting.lua", true))()
+ dahood
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%202/dahood.lua", true))()
+ dungeonquest
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%202/dungeonquest.lua", true))()
+ evo2
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%202/evo2.lua", true))()
+ jailbreak
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%202/jailbreak.lua", true))()
+ jailbreakautorob
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%202/jailbreakautorob.lua", true))()
+ mm2
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%202/mm2.lua", true))()
+ opengui
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%202/opengui.lua", true))()
+ prisonlife
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%202/prisonlife.lua", true))()
+
+TAB 3
+ aut
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%203/aut.lua", true))()
+ bedwars
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%203/bedwars.lua", true))()
+ beeswarmsim
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%203/beeswarmsim.lua", true))()
+ bloxburg
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%203/bloxburg.lua", true))()
+ fishgame
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%203/fishgame.lua", true))()
+ mapfucker
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%203/mapfucker.lua", true))()
+ meepcity
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%203/meepcity.lua", true))()
+ petsimx
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%203/petsimx.lua", true))()
+ piggy
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%203/piggy.lua", true))()
+
+TAB 4
+ babft
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%204/babft.lua", true))()
+ funkyfriday
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%204/funkyfriday.lua", true))()
+ kat
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%204/kat.lua", true))()
+ ninjalegends2
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%204/ninjalegends2.lua", true))()
+ ragdollengine
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%204/ragdollengine.lua", true))()
+ robeats
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%204/robeats.lua", true))()
+ sabersim
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%204/sabersim.lua", true))()
+ shindolife
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%204/shindolife.lua", true))()
+ toh
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/main/Tab%204/toh.lua", true))()
