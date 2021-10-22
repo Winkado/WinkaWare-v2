@@ -8,7 +8,7 @@ local function GetURL(scripturl)
 	end
 end
 local getasset = getsynasset or getcustomasset
-if getasset == nil then
+if getasset == nil and getgenv().getcustomasset == nil then
 	getgenv().getcustomasset = function(location) return "rbxasset://"..location end
 	getasset = getgenv().getcustomasset
 end
@@ -240,6 +240,7 @@ FriendsColor = Friends.CreateColorSlider({
 	end
 })
 local ProfilesTextList = {["RefreshValues"] = function() end}
+local profilesloaded = false
 ProfilesTextList = Profiles.CreateTextList({
 	["Name"] = "ProfilesList",
 	["TempText"] = "Type name", 
@@ -374,6 +375,205 @@ ProfilesTextList = Profiles.CreateTextList({
 		end
 	end
 })
+local OnlineProfilesButton = Instance.new("TextButton")
+OnlineProfilesButton.Name = "OnlineProfilesButton"
+OnlineProfilesButton.LayoutOrder = 1
+OnlineProfilesButton.AutoButtonColor = false
+OnlineProfilesButton.Size = UDim2.new(0, 45, 0, 29)
+OnlineProfilesButton.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
+OnlineProfilesButton.Active = false
+OnlineProfilesButton.Text = ""
+OnlineProfilesButton.ZIndex = 4
+OnlineProfilesButton.Font = Enum.Font.SourceSans
+OnlineProfilesButton.TextXAlignment = Enum.TextXAlignment.Left
+OnlineProfilesButton.Position = UDim2.new(0, 166, 0, 6)
+OnlineProfilesButton.Parent = ProfilesTextList["Object"]
+local OnlineProfilesButtonBKG = Instance.new("Frame")
+OnlineProfilesButtonBKG.BackgroundColor3 = Color3.fromRGB(38, 37, 38)
+OnlineProfilesButtonBKG.Size = UDim2.new(0, 47, 0, 31)
+OnlineProfilesButtonBKG.Position = UDim2.new(0, 165, 0, 5)
+OnlineProfilesButtonBKG.ZIndex = 3
+OnlineProfilesButtonBKG.Parent = ProfilesTextList["Object"]
+local OnlineProfilesButtonImage = Instance.new("ImageLabel")
+OnlineProfilesButtonImage.BackgroundTransparency = 1
+OnlineProfilesButtonImage.Position = UDim2.new(0, 14, 0, 7)
+OnlineProfilesButtonImage.Size = UDim2.new(0, 17, 0, 16)
+OnlineProfilesButtonImage.Image = getcustomassetfunc("vape/assets/OnlineProfilesButton.png")
+OnlineProfilesButtonImage.ImageColor3 = Color3.fromRGB(121, 121, 121)
+OnlineProfilesButtonImage.ZIndex = 5
+OnlineProfilesButtonImage.Active = false
+OnlineProfilesButtonImage.Parent = OnlineProfilesButton
+local OnlineProfilesbuttonround1 = Instance.new("UICorner")
+OnlineProfilesbuttonround1.CornerRadius = UDim.new(0, 5)
+OnlineProfilesbuttonround1.Parent = OnlineProfilesButton
+local OnlineProfilesbuttonround2 = Instance.new("UICorner")
+OnlineProfilesbuttonround2.CornerRadius = UDim.new(0, 5)
+OnlineProfilesbuttonround2.Parent = OnlineProfilesButtonBKG
+local OnlineProfilesFrame = Instance.new("Frame")
+OnlineProfilesFrame.Size = UDim2.new(0, 660, 0, 445)
+OnlineProfilesFrame.Position = UDim2.new(0.5, -330, 0.5, -223)
+OnlineProfilesFrame.BackgroundColor3 = Color3.fromRGB(26, 25, 26)
+OnlineProfilesFrame.Parent = GuiLibrary["MainGui"].OnlineProfiles
+local OnlineProfilesFrameShadow = Instance.new("ImageLabel")
+OnlineProfilesFrameShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+OnlineProfilesFrameShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+OnlineProfilesFrameShadow.Image = getcustomassetfunc("vape/assets/WindowBlur.png")
+OnlineProfilesFrameShadow.BackgroundTransparency = 1
+OnlineProfilesFrameShadow.ZIndex = -1
+OnlineProfilesFrameShadow.Size = UDim2.new(1, 6, 1, 6)
+OnlineProfilesFrameShadow.ImageColor3 = Color3.new(0, 0, 0)
+OnlineProfilesFrameShadow.ScaleType = Enum.ScaleType.Slice
+OnlineProfilesFrameShadow.SliceCenter = Rect.new(10, 10, 118, 118)
+OnlineProfilesFrameShadow.Parent = OnlineProfilesFrame
+local OnlineProfilesFrameIcon = Instance.new("ImageLabel")
+OnlineProfilesFrameIcon.Size = UDim2.new(0, 19, 0, 16)
+OnlineProfilesFrameIcon.Image = getcustomassetfunc("vape/assets/ProfilesIcon.png")
+OnlineProfilesFrameIcon.Name = "WindowIcon"
+OnlineProfilesFrameIcon.BackgroundTransparency = 1
+OnlineProfilesFrameIcon.Position = UDim2.new(0, 10, 0, 13)
+OnlineProfilesFrameIcon.ImageColor3 = Color3.fromRGB(200, 200, 200)
+OnlineProfilesFrameIcon.Parent = OnlineProfilesFrame
+local OnlineProfilesFrameText = Instance.new("TextLabel")
+OnlineProfilesFrameText.Size = UDim2.new(0, 155, 0, 41)
+OnlineProfilesFrameText.BackgroundTransparency = 1
+OnlineProfilesFrameText.Name = "WindowTitle"
+OnlineProfilesFrameText.Position = UDim2.new(0, 36, 0, 0)
+OnlineProfilesFrameText.TextXAlignment = Enum.TextXAlignment.Left
+OnlineProfilesFrameText.Font = Enum.Font.SourceSans
+OnlineProfilesFrameText.TextSize = 17
+OnlineProfilesFrameText.Text = "Profiles"
+OnlineProfilesFrameText.TextColor3 = Color3.fromRGB(201, 201, 201)
+OnlineProfilesFrameText.Parent = OnlineProfilesFrame
+local OnlineProfilesFrameText2 = Instance.new("TextLabel")
+OnlineProfilesFrameText2.TextSize = 15
+OnlineProfilesFrameText2.TextColor3 = Color3.fromRGB(85, 84, 85)
+OnlineProfilesFrameText2.Text = "YOUR PROFILES"
+OnlineProfilesFrameText2.Font = Enum.Font.SourceSans
+OnlineProfilesFrameText2.BackgroundTransparency = 1
+OnlineProfilesFrameText2.TextXAlignment = Enum.TextXAlignment.Left
+OnlineProfilesFrameText2.TextYAlignment = Enum.TextYAlignment.Top
+OnlineProfilesFrameText2.Size = UDim2.new(1, 0, 0, 20)
+OnlineProfilesFrameText2.Position = UDim2.new(0, 10, 0, 48)
+OnlineProfilesFrameText2.Parent = OnlineProfilesFrame
+local OnlineProfilesFrameText3 = Instance.new("TextLabel")
+OnlineProfilesFrameText3.TextSize = 15
+OnlineProfilesFrameText3.TextColor3 = Color3.fromRGB(85, 84, 85)
+OnlineProfilesFrameText3.Text = "PUBLIC PROFILES"
+OnlineProfilesFrameText3.Font = Enum.Font.SourceSans
+OnlineProfilesFrameText3.BackgroundTransparency = 1
+OnlineProfilesFrameText3.TextXAlignment = Enum.TextXAlignment.Left
+OnlineProfilesFrameText3.TextYAlignment = Enum.TextYAlignment.Top
+OnlineProfilesFrameText3.Size = UDim2.new(1, 0, 0, 20)
+OnlineProfilesFrameText3.Position = UDim2.new(0, 231, 0, 48)
+OnlineProfilesFrameText3.Parent = OnlineProfilesFrame
+local OnlineProfilesBorder1 = Instance.new("Frame")
+OnlineProfilesBorder1.BackgroundColor3 = Color3.fromRGB(40, 39, 40)
+OnlineProfilesBorder1.BorderSizePixel = 0
+OnlineProfilesBorder1.Size = UDim2.new(1, 0, 0, 1)
+OnlineProfilesBorder1.Position = UDim2.new(0, 0, 0, 41)
+OnlineProfilesBorder1.Parent = OnlineProfilesFrame
+local OnlineProfilesBorder2 = Instance.new("Frame")
+OnlineProfilesBorder2.BackgroundColor3 = Color3.fromRGB(40, 39, 40)
+OnlineProfilesBorder2.BorderSizePixel = 0
+OnlineProfilesBorder2.Size = UDim2.new(0, 1, 1, -41)
+OnlineProfilesBorder2.Position = UDim2.new(0, 220, 0, 41)
+OnlineProfilesBorder2.Parent = OnlineProfilesFrame
+local OnlineProfilesList = Instance.new("ScrollingFrame")
+OnlineProfilesList.BackgroundTransparency = 1
+OnlineProfilesList.Size = UDim2.new(0, 408, 0, 319)
+OnlineProfilesList.Position = UDim2.new(0, 230, 0, 122)
+OnlineProfilesList.CanvasSize = UDim2.new(0, 408, 0, 319)
+OnlineProfilesList.Parent = OnlineProfilesFrame
+local OnlineProfilesListGrid = Instance.new("UIGridLayout")
+OnlineProfilesListGrid.CellSize = UDim2.new(0, 134, 0, 144)
+OnlineProfilesListGrid.CellPadding = UDim2.new(0, 4, 0, 4)
+OnlineProfilesListGrid.Parent = OnlineProfilesList
+local OnlineProfilesFrameCorner = Instance.new("UICorner")
+OnlineProfilesFrameCorner.CornerRadius = UDim.new(0, 4)
+OnlineProfilesFrameCorner.Parent = OnlineProfilesFrame
+OnlineProfilesButton.MouseButton1Click:connect(function()
+	GuiLibrary["MainGui"].OnlineProfiles.Visible = true
+	GuiLibrary["MainGui"].ClickGui.Visible = false
+	if profilesloaded == false then
+		local onlineprofiles = {}
+		local success, result = pcall(function()
+			return game:GetService("HttpService"):JSONDecode((shared.VapeDeveloper and readfile("vape/OnlineProfiles.vapeonline") or game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/OnlineProfiles.vapeonline", true)))
+		end)
+		onlineprofiles = (success and result or {})
+		for i2,v2 in pairs(onlineprofiles) do
+			if v2["ProfileGame"] == game.PlaceId then
+				local profilebox = Instance.new("Frame")
+				profilebox.BackgroundColor3 = Color3.fromRGB(31, 30, 31)
+				profilebox.Parent = OnlineProfilesList
+				local profiletext = Instance.new("TextLabel")
+				profiletext.TextSize = 15
+				profiletext.TextColor3 = Color3.fromRGB(137, 136, 137)
+				profiletext.Size = UDim2.new(0, 100, 0, 20)
+				profiletext.Position = UDim2.new(0, 18, 0, 25)
+				profiletext.Font = Enum.Font.SourceSans
+				profiletext.TextXAlignment = Enum.TextXAlignment.Left
+				profiletext.TextYAlignment = Enum.TextYAlignment.Top
+				profiletext.BackgroundTransparency = 1
+				profiletext.Text = i2
+				profiletext.Parent = profilebox
+				local profiledownload = Instance.new("TextButton")
+				profiledownload.BackgroundColor3 = Color3.fromRGB(31, 30, 31)
+				profiledownload.Size = UDim2.new(0, 69, 0, 31)
+				profiledownload.Font = Enum.Font.SourceSans
+				profiledownload.TextColor3 = Color3.fromRGB(200, 200, 200)
+				profiledownload.TextSize = 15
+				profiledownload.AutoButtonColor = false
+				profiledownload.Text = "DOWNLOAD"
+				profiledownload.Position = UDim2.new(0, 14, 0, 96)
+				profiledownload.Visible = false 
+				profiledownload.Parent = profilebox
+				profiledownload.ZIndex = 2
+				local profiledownloadbkg = Instance.new("Frame")
+				profiledownloadbkg.Size = UDim2.new(0, 71, 0, 33)
+				profiledownloadbkg.BackgroundColor3 = Color3.fromRGB(42, 41, 42)
+				profiledownloadbkg.Position = UDim2.new(0, 13, 0, 95)
+				profiledownloadbkg.ZIndex = 1
+				profiledownloadbkg.Visible = false
+				profiledownloadbkg.Parent = profilebox
+				profilebox.MouseEnter:connect(function()
+					profiletext.TextColor3 = Color3.fromRGB(200, 200, 200)
+					profiledownload.Visible = true 
+					profiledownloadbkg.Visible = true
+				end)
+				profilebox.MouseLeave:connect(function()
+					profiletext.TextColor3 = Color3.fromRGB(137, 136, 137)
+					profiledownload.Visible = false
+					profiledownloadbkg.Visible = false
+				end)
+				profiledownload.MouseEnter:connect(function()
+					profiledownload.BackgroundColor3 = Color3.fromRGB(5, 134, 105)
+				end)
+				profiledownload.MouseLeave:connect(function()
+					profiledownload.BackgroundColor3 = Color3.fromRGB(31, 30, 31)
+				end)
+				profiledownload.MouseButton1Click:connect(function()
+					writefile("vape/Profiles/"..v2["ProfileName"]..tostring(game.PlaceId)..".vapeprofile", (shared.VapeDeveloper and readfile("vape/OnlineProfiles/"..v2["OnlineProfileName"]) or game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/OnlineProfiles/"..v2["OnlineProfileName"], true)))
+					GuiLibrary["Profiles"][v2["ProfileName"]] = {["Keybind"] = "", ["Selected"] = false}
+					if table.find(ProfilesTextList["ObjectList"], v2["ProfileName"]) == nil then
+						table.insert(ProfilesTextList["ObjectList"], v2["ProfileName"])
+					end
+					ProfilesTextList["RefreshValues"](ProfilesTextList["ObjectList"])
+				end)
+				local profileround = Instance.new("UICorner")
+				profileround.CornerRadius = UDim.new(0, 4)
+				profileround.Parent = profilebox
+				local profileround2 = Instance.new("UICorner")
+				profileround2.CornerRadius = UDim.new(0, 4)
+				profileround2.Parent = profiledownload
+				local profileround3 = Instance.new("UICorner")
+				profileround3.CornerRadius = UDim.new(0, 4)
+				profileround3.Parent = profiledownloadbkg
+			end
+		end
+		profilesloaded = true
+	end
+end)
+
 GUI.CreateDivider()
 ---GUI.CreateCustomButton("Favorites", "vape/assets/FavoritesListIcon.png", UDim2.new(0, 17, 0, 14), function() end, function() end)
 --GUI.CreateCustomButton("Text GUIVertical", "vape/assets/TextGUIIcon3.png", UDim2.new(1, -56, 0, 15), function() end, function() end)
@@ -649,9 +849,10 @@ local targetname = Instance.new("TextLabel")
 targetname.TextSize = 17
 targetname.Font = Enum.Font.SourceSans
 targetname.TextColor3 = Color3.new(1, 1, 1)
-targetname.Position = UDim2.new(0, 72, 0, 6)
+targetname.Position = UDim2.new(0, 72, 0, 7)
+targetname.TextStrokeTransparency = 0.75
 targetname.BackgroundTransparency = 1
-targetname.Size = UDim2.new(0, 80, 0, 14)
+targetname.Size = UDim2.new(0, 80, 0, 16)
 targetname.TextScaled = true
 targetname.Text = "Target name"
 targetname.ZIndex = 2
@@ -679,7 +880,13 @@ targethealthbkg.Parent = targetinfobkg3
 local targethealthgreen = Instance.new("Frame")
 targethealthgreen.BackgroundColor3 = Color3.fromRGB(40, 137, 109)
 targethealthgreen.Size = UDim2.new(1, 0, 0, 4)
+targethealthgreen.ZIndex = 3
 targethealthgreen.Parent = targethealthbkg
+local targethealthorange = Instance.new("Frame")
+targethealthorange.ZIndex = 2
+targethealthorange.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+targethealthorange.Size = UDim2.new(1, 0, 0, 4)
+targethealthorange.Parent = targethealthbkg
 local targetimage = Instance.new("ImageLabel")
 targetimage.Size = UDim2.new(0, 61, 0, 61)
 targetimage.BackgroundTransparency = 1
@@ -698,16 +905,21 @@ round3.Parent = targethealthbkg
 local round4 = Instance.new("UICorner")
 round4.CornerRadius = UDim.new(0, 4)
 round4.Parent = targethealthgreen
+local round6 = Instance.new("UICorner")
+round6.CornerRadius = UDim.new(0, 4)
+round6.Parent = targethealthorange
 local round5 = Instance.new("UICorner")
 round5.CornerRadius = UDim.new(0, 4)
 round5.Parent = targetimage
+local oldhealth = 100
+local allowedtween = true
 TargetInfo.GetCustomChildren().Parent:GetPropertyChangedSignal("Size"):connect(function()
 	if TargetInfo.GetCustomChildren().Parent.Size ~= UDim2.new(0, 220, 0, 0) then
 		targetinfobkg3.Position = UDim2.new(0, 0, 0, -5)
 		targetinfobkg2.BackgroundTransparency = 0
 		targetinfobkg1.BackgroundTransparency = 0
 	else
-		targetinfobkg3.Position = UDim2.new(0, 0, 0, 0)
+		targetinfobkg3.Position = UDim2.new(0, 0, 0, 40)
 		targetinfobkg2.BackgroundTransparency = 1
 		targetinfobkg1.BackgroundTransparency = 1
 	end
@@ -718,6 +930,20 @@ shared.VapeTargetInfo = {
 		for i,v in pairs(tab) do
 			targetimage.Image = 'rbxthumb://type=AvatarHeadShot&id='..v["UserId"]..'&w=420&h=420'
 			targethealthgreen:TweenSize(UDim2.new(v["Health"] / v["MaxHealth"], 0, 0, 4), Enum.EasingDirection.InOut, Enum.EasingStyle.Quad, 0.05, true)
+			spawn(function()
+				if allowedtween then
+					if v["Health"] < oldhealth then
+						targethealthorange:TweenSize(UDim2.new(oldhealth / v["MaxHealth"], 0, 0, 4), Enum.EasingDirection.InOut, Enum.EasingStyle.Quad, 0.05, true)
+						oldhealth = v["Health"]
+						allowedtween = false
+						wait(0.3)
+						allowedtween = true
+						targethealthorange:TweenSize(UDim2.new(v["Health"] / v["MaxHealth"], 0, 0, 4), Enum.EasingDirection.InOut, Enum.EasingStyle.Quad, 0.05, true)
+					else
+						targethealthorange:TweenSize(UDim2.new(v["Health"] / v["MaxHealth"], 0, 0, 4), Enum.EasingDirection.InOut, Enum.EasingStyle.Quad, 0.05, true)
+					end
+				end
+			end)
 			targethealth.Text = math.floor(v["Health"]).." hp"
 			targetname.Text = i
 		end
@@ -894,6 +1120,8 @@ GUI.CreateToggle({
 local rescale = GUI.CreateToggle({
 	["Name"] = "Rescale", 
 	["Function"] = function(callback) 
+		GuiLibrary["MainRescale"].Scale = (callback and math.clamp(cam.ViewportSize.X / 1920, 0.5, 1) or 0.99)
+		wait(0.01)
 		GuiLibrary["MainRescale"].Scale = (callback and math.clamp(cam.ViewportSize.X / 1920, 0.5, 1) or 1)
 	end,
 	["Default"] = true
