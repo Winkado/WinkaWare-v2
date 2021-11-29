@@ -24,6 +24,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/
 ## Windows 7 - 10
 
 * Open CMD (Windows+R, then type "CMD")
+* To change install directory, you can use the "cd" command - EG:
+```
+cd C:\Users\*****\Desktop
+```
 * Run the command following command
 ```
 $ git clone https://github.com/Winkado/WinkaWare-v2.git
@@ -35,4 +39,20 @@ $ git -c http.sslVerify=false clone https://github.com/Winkado/WinkaWare-v2.git
 
 ## MacOS
 
-* Coming Soon
+* Open Terminal (Through Launchpad)
+* To change the install directory, right click the desired folder then click "Copy FOLDERNAME", then run
+```
+cd (Command+V - Will paste the copied directory)
+```
+* Then run
+```
+$ git clone https://github.com/Winkado/WinkaWare-v2.git
+```
+* If you have any problems cloning the repository, try this command instead
+```
+$ git -c http.sslVerify=false clone https://github.com/Winkado/WinkaWare-v2.git
+```
+
+# What it Does
+
+This is a script hub, containing a ROBLOX exploit for almost every popular game.
