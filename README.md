@@ -8,7 +8,7 @@ SCRIPT OFFICIALLY PUBLIC, v2.4 (Public Beta)
 
 **I don't own any of the scripts used in the hub.**
 
-# Installation
+## Installation
 
 * Download any script executor. Made for KRNL.
 * Copy the loadstring or the raw script from the download page. You can also clone it to your machine if you prefer.
@@ -19,7 +19,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Winkado/WinkaWare-v2/
 * Paste the loadstring/script into the executor
 * Execute the script
 
-## Cloning the Repository
+# Cloning the Repository
 
 ## Windows 7 - 10
 
