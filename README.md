@@ -1,8 +1,7 @@
 # WinkaWare v2
 
 [![Latest Stable Version](https://poser.pugx.org/saeven/zf3-circlical-user/v/stable)](https://packagist.org/packages/saeven/zf3-circlical-user)
-[![Total Downloads](https://poser.pugx.org/saeven/zf3-circlical-user/downloads)](https://packagist.org/packages/saeven/zf3-circlical-user)
-
+![GitHub all releases](https://img.shields.io/github/downloads/winkado/WinkaWare-v2/total)
 ## Introduction
 
 Roblox script collection for the WinkaWare hub →
